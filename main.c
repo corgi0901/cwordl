@@ -81,20 +81,21 @@ int check(char* ans, char* input)
     return (strcmp(ans, input) == 0) ? 1 : 0;
 }
 
-int is_acceptable(char input[INPUT_MAX_LEN])
+int accept(char input[INPUT_MAX_LEN])
 {
+    clear_line(MSG_LINE);
+
     if(strlen(input) != WORD_LEN)
     {
-        mvprintw(MSG_LINE, 0, "Input must be just %d characters\n", WORD_LEN);
+        mvprintw(MSG_LINE, 0, "Input must be just %d characters", WORD_LEN);
         return 0;
     }
 
     for(int i=0; i<WORD_LEN; i++)
     {
-        char c = input[i];
-        if(!(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')))
+        if(isalpha(input[i]) == 0)
         {
-            mvprintw(MSG_LINE, 0, "You can use only \'a\'~\'z\' and \'A\'~\'Z\'\n");
+            mvprintw(MSG_LINE, 0, "You can use only \'a\'~\'z\' and \'A\'~\'Z\'");
             return 0;
         }
     }
@@ -103,14 +104,10 @@ int is_acceptable(char input[INPUT_MAX_LEN])
 
     for(int i=0; i<WORD_LIST_LEN; i++)
     {
-        if(strcmp(wordlist[i], input) == 0)
-        {
-            clear_line(MSG_LINE);
-            return 1;
-        }
+        if(strcmp(wordlist[i], input) == 0) return 1;
     }
 
-    mvprintw(MSG_LINE, 0, "\"%s\" is not in word list\n", input);
+    mvprintw(MSG_LINE, 0, "\"%s\" is not in word list", input);
 
     return 0;
 }
@@ -120,16 +117,17 @@ void print_character(void)
     move(CHAR_LINE, 0);
     for(int i=0; i<sizeof(status); i++)
     {
+        char c = 'A' + i;
         switch(status[i])
         {
             case 0:
-                printc_with_color(WHITE, 'A' + i);
+                printc_with_color(WHITE, c);
                 break;
             case 1:
-                printc_with_color(GREEN, 'A' + i);
+                printc_with_color(GREEN, c);
                 break;
             case 2:
-                printc_with_color(YELLOW, 'A' + i);
+                printc_with_color(YELLOW, c);
                 break;
             case 3:
                 printc_with_color(WHITE, ' ');
@@ -224,7 +222,7 @@ int main(void)
             return 0;
         }
 
-        if(is_acceptable(input))
+        if(accept(input))
         {
             strcpy(record[count++], input);
             if(check(answer, input)) clear = 1;
