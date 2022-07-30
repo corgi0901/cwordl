@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ncurses.h>
+#include <ctype.h>
 #include "wordlist.h"
 
 #define WORD_LEN    5
@@ -43,10 +44,7 @@ void to_upper(char *str)
 {
     for(int i=0; str[i] != '\0'; i++)
     {
-        if('a' <= str[i] && str[i] <= 'z')
-        {
-            str[i] = 'A' + (str[i] - 'a');
-        }
+        str[i] = toupper(str[i]);
     }
 }
 
