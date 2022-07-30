@@ -1,6 +1,8 @@
 # cwordl
 英単語当てゲーム（wordl）風のコンソールアプリです。
 
+![cwordl](https://user-images.githubusercontent.com/26116936/181905713-57a24db3-11c2-4b5b-b771-163f7911a28f.png)
+
 ## ビルド方法
 > $ git clone https://github.com/corgi0901/cwordl.git  
 > $ cd cwordl  
@@ -9,5 +11,10 @@
 ## 実行方法
 > $ ./cwordl
 
-## プレイ画面
-![cwordl](https://user-images.githubusercontent.com/26116936/181575526-380a57c5-6e7f-4b7a-a2f0-7c15b42686f1.png)
+## ルール
+ランダムで選ばれた5文字の英単語を当てるゲームです。最大で6回までチャレンジすることができます。  
+1回のチャレンジ毎に、入力した単語と正解の単語がどれだけ一致しているかが、画面上の盤面に表示されます。
+
+緑：その文字・位置ともに正解の単語と一致  
+黄：その文字は正解の単語に含まれるが位置が異なる  
+白：その文字は正解の単語に含まれていない
