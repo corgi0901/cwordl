@@ -1,15 +1,15 @@
-# cwordl
-英単語当てゲーム（wordl）風のコンソールアプリです。
+# cwordle
+英単語当てゲーム（wordle）風のコンソールアプリです。
 
 ![cwordl](https://user-images.githubusercontent.com/26116936/181905713-57a24db3-11c2-4b5b-b771-163f7911a28f.png)
 
 ## ビルド方法
-> $ git clone https://github.com/corgi0901/cwordl.git  
-> $ cd cwordl  
+> $ git clone https://github.com/corgi0901/cwordle.git  
+> $ cd cwordle  
 > $ make
 
 ## 実行方法
-> $ ./cwordl
+> $ ./cwordle
 
 ## ルール
 ランダムで選ばれた5文字の英単語を当てるゲームです。最大で6回までチャレンジすることができます。  
